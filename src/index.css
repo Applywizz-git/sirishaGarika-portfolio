@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 40% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 10%;
+    --primary: 220 70% 15%;
+    --primary-foreground: 45 100% 70%;
+    --secondary: 45 80% 55%;
+    --secondary-foreground: 220 70% 15%;
+    --muted: 220 20% 92%;
+    --muted-foreground: 220 20% 45%;
+    --accent: 45 90% 60%;
+    --accent-foreground: 220 70% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 20% 97%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 45 80% 55%;
+    --radius: 0.75rem;
+    
+    /* Portfolio-specific tokens - Luxury Classic */
+    --hero-gradient: linear-gradient(135deg, hsl(220 70% 15%), hsl(45 80% 55%));
+    --glass-bg: hsla(0, 0%, 100%, 0.05);
+    --glass-border: hsla(45, 80%, 55%, 0.2);
+    --shadow-glow: 0 0 50px hsla(45, 90%, 60%, 0.4);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 40% 8%;
+    --foreground: 45 100% 95%;
+    --card: 220 35% 12%;
+    --card-foreground: 45 100% 95%;
+    --popover: 220 35% 12%;
+    --popover-foreground: 45 100% 95%;
+    --primary: 45 90% 60%;
+    --primary-foreground: 220 70% 10%;
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 45 100% 95%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 45 30% 70%;
+    --accent: 45 90% 60%;
+    --accent-foreground: 220 70% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 100% 95%;
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 45 90% 60%;
+    
+    /* Portfolio-specific tokens - Luxury Classic dark mode */
+    --hero-gradient: linear-gradient(135deg, hsl(220 40% 12%), hsl(45 90% 60%));
+    --glass-bg: hsla(220, 40%, 15%, 0.6);
+    --glass-border: hsla(45, 90%, 60%, 0.15);
+    --shadow-glow: 0 0 60px hsla(45, 90%, 60%, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+}
